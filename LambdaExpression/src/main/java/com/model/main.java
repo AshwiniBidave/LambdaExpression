@@ -5,6 +5,8 @@ public class main {
 		UserValidation ur=new UserValidation();
 		ur.validateFirstName();
 		ur.validateLastName();
+		ur.validateEmail();
+		ur.validatePhoneNo();
 	}
 
 }

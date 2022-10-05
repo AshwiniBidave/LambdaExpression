@@ -8,9 +8,12 @@ public class UserValidation {
 	public static String FIRST_NAME = "^[A-Z]{1}[a-z]{2,}$";
 	public static String LAST_NAME = "^[A-Z]{1}[a-z]{2,}$";
 	public static String REGEX_EMAIL ="[a-z0-9@.]*";
-	
+	public static String mobileRegex = "^(91){1}[ ]+[0-9]{10}$";
+	 
 	public static Predicate<String> validateUserName = name -> Pattern.matches(FIRST_NAME, name);
 	public static Predicate<String> validateEmail = email -> Pattern.matches(REGEX_EMAIL, email);
+	public static Predicate<String> validatePnNo = phNo -> Pattern.matches(mobileRegex ,phNo); 
+	
 
 	Scanner sc = new Scanner(System.in);
 
@@ -41,6 +44,16 @@ public class UserValidation {
                 System.out.println("email is Vaild");
             else
                 System.out.println("email is Not Vaild");
+        }
+        public void validatePhoneNo() {
+            System.out.println("Enter Pho No :");
+            String phoneNo = sc.nextLine();
+            if (validatePnNo.test(phoneNo))
+                System.out.println("Phone number is Vaild");
+            else {
+                System.out.println("Phone number is Not Vaild");
+                System.out.println("Country code follow by space and 10 digit number ");
+            }
         }
 		
     }
