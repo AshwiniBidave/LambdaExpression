@@ -7,6 +7,7 @@ public class main {
 		ur.validateLastName();
 		ur.validateEmail();
 		ur.validatePhoneNo();
+		ur.validatePassword();
 	}
 
 }

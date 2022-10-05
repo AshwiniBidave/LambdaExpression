@@ -9,11 +9,12 @@ public class UserValidation {
 	public static String LAST_NAME = "^[A-Z]{1}[a-z]{2,}$";
 	public static String REGEX_EMAIL ="[a-z0-9@.]*";
 	public static String mobileRegex = "^(91){1}[ ]+[0-9]{10}$";
-	 
+	public static String REGEX_PASSWORD = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8,20}$";
+
 	public static Predicate<String> validateUserName = name -> Pattern.matches(FIRST_NAME, name);
 	public static Predicate<String> validateEmail = email -> Pattern.matches(REGEX_EMAIL, email);
 	public static Predicate<String> validatePnNo = phNo -> Pattern.matches(mobileRegex ,phNo); 
-	
+	public static Predicate<String> validatePassword = password -> Pattern.matches(REGEX_PASSWORD, password);
 
 	Scanner sc = new Scanner(System.in);
 
@@ -53,6 +54,16 @@ public class UserValidation {
             else {
                 System.out.println("Phone number is Not Vaild");
                 System.out.println("Country code follow by space and 10 digit number ");
+            }
+        }
+        public void validatePassword() {
+            System.out.println("Enter Password :");
+            String phoneNo = sc.nextLine();
+            if (validatePassword.test(phoneNo))
+                System.out.println("Password is Vaild");
+            else {
+                System.out.println("Password is Not Vaild");
+                System.out.println("\nPassword Should have : \n1. Minimum 8 charatcers \n2. At least 1 Upper Case \n3. At least 1 Numeric Number \n4. exactly 1 Special Character");
             }
         }
 		
